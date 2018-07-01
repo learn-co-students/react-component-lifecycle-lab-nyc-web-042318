@@ -10,6 +10,6 @@ export const getTweets = () => {
     numTweetsSent = 0;
   }
   numTweetsSent = numTweetsSent + numTweets;
-
+  // console.log(tweets.slice(numTweetsSent - numTweets, numTweetsSent))
   return tweets.slice(numTweetsSent - numTweets, numTweetsSent);
 }
