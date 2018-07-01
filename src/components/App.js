@@ -14,6 +14,18 @@ class App extends React.Component {
   }
 
   // TODO: componentWillMount()
+  componentWillMount(){
+    this.fetchTweets();
+
+  }
+  componentDidMount(){
+
+    this.startInterval();
+  }
+
+  componentWillUnmount(){
+    this.cleanUpInterval();
+  }
   // TODO: componentDidMount()
   // TODO: componentWillUnmount()
 
@@ -25,12 +37,14 @@ class App extends React.Component {
 
   fetchTweets = () => {
     const newTweets = getTweets();
+    // console.log(newTweets)
     this.setState({
       latestTweets: newTweets
     });
   }
 
   render() {
+    console.log(this.state.latestTweets)
     return (
       <div>
         <TweetWall newTweets={this.state.latestTweets} />
